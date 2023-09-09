@@ -1,4 +1,4 @@
-import Authentication from "./Authentication";
+import Login from "./Login";
 import HomePage from "./HomePage";
 
-export { Authentication, HomePage }
+export { Login, HomePage }
