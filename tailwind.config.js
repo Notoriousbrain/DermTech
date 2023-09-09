@@ -6,10 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "regal-blue": "#243c5a",
+        "my-blue": "#08376B",
+        "my-green": "#9AEBA6",
         // "my-dark": "#24252D",
         "my-dark": "#000000",
-        "my-light": "#F5F5F5",
+        "my-light": "#FFFFFF",
         "my-gray-1": "#E4E5E2",
         // "my-gray-1": "#A9A9A9",
         "my-gray-2": "#888888",

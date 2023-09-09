@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react'
+import { Button } from '../components';
+import { useNavigate } from 'react-router-dom';
+import Card from '../components/Card';
 
 const HomePage = () => {
-  const [home, setHome] = useState("Home");
-  const userName = [
-    {
-      name: "Rohit",
-      Comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum laudantium, possimus eos aliquid quae fugiat vel consequuntur? Officia, corrupti quos."
-    },
-    {
-      name: "Suhani",
-      Comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum laudantium, possimus eos aliquid quae fugiat vel consequuntur? Officia, corrupti quos."
-    },
-  ];
-
-  
-  
+const user = [
+  {
+    title: "Card 1",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolore rerum optio corrupti modi deleniti corporis debitis harum dolorem laudantium?",
+    linkTo: "/login",
+  },
+  {
+    title: "Card 2",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolore rerum optio corrupti modi deleniti corporis debitis harum dolorem laudantium?",
+    linkTo: "/register",
+  },
+  {
+    title: "Card 3",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolore rerum optio corrupti modi deleniti corporis debitis harum dolorem laudantium?",
+    linkTo: "/register",
+  },
+];
 
   return (
-    <div>
-      <div>
-        {userName.map((user, key) => (
-          <div key={key}>
-            <div>{user.name}</div>
-            <div>{user.Comment}</div>
-          </div>
-        ))}
-      </div>
+    <div className="flex justify-evenly">
+      <Card user={user[0]} />
+      <Card user={user[1]} />
+      <Card user={user[2]} />
     </div>
   );
 }
