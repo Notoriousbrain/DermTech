@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { HomePage, Login, Register } from "./pages";
 import Mode from "./components/Mode";
 
-function App() {
+function App() 
+{
     const [isDark, setIsDark] = useState(true);
     const [userTheme, setUserTheme] = useState("dark");
 
@@ -42,6 +43,8 @@ function App() {
       <Mode themeSwitch={themeSwitch} isDark={isDark} classStyles="absolute right-5 bottom-5" />
     </div>
   );
+
+  
 }
 
 export default App;

@@ -8,17 +8,15 @@ const user = [
   {
     title: "Card 1",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolore rerum optio corrupti modi deleniti corporis debitis harum dolorem laudantium?",
-    linkTo: "/login",
   },
   {
     title: "Card 2",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolore rerum optio corrupti modi deleniti corporis debitis harum dolorem laudantium?",
-    linkTo: "/register",
   },
   {
     title: "Card 3",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolore rerum optio corrupti modi deleniti corporis debitis harum dolorem laudantium?",
-    linkTo: "/register",
+    imageSrc: "https://xsgames.co/randomusers/assets/avatars/male/46.jpg"
   },
 ];
 
