@@ -16,7 +16,7 @@ const Navbar = () => {
     <div>
       <div className="h-[9vh] dark:bg-my-dark bg-my-light py-4 xs:py-2 px-10 md:px-8 sm:px-6 xs:px-4 flex items-center justify-between">
         <Link to="/" className="text-2xl dark:text-white">
-          DermaTech
+          <img src="../assets/logo.jpg" alt="logo" />
         </Link>
         <div className="flex items-center space-x-6 md:hidden">
           <Link
