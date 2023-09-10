@@ -1,9 +1,10 @@
 // For Login and Register
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useUserContext } from "../context";
 
 const PasswordInput = ({
   visible,
@@ -12,6 +13,7 @@ const PasswordInput = ({
   classStyles,
   value,
   onChange,
+  onKeyPress
 }) => {
   return (
     <div
@@ -23,6 +25,11 @@ const PasswordInput = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            onKeyPress(); 
+          }
+        }}
       />
       {visible ? (
         <AiOutlineEyeInvisible className="w-5 h-5" onClick={toggleVisibility} />
@@ -34,8 +41,9 @@ const PasswordInput = ({
 };
 
 const Auth = ({ title, text, linkTo }) => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
+  const {email, setEmail} = useUserContext("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -114,6 +122,12 @@ const Auth = ({ title, text, linkTo }) => {
       }
     }
 
+     if (isValid) {
+       title === "SIGN IN"
+         ? navigate('/')
+         : navigate('/enter-details');
+     }
+
   };
 
   return (
@@ -128,7 +142,7 @@ const Auth = ({ title, text, linkTo }) => {
               emailError
                 ? "border-red-500"
                 : "dark:border-my-black-1 border-my-gray-2"
-            }  w-full outline-none font-poppins dark:text-my-light text-my-gray-2 text-base mt-4 px-4 py-3`}
+            }  w-full outline-none font-poppins rounded-md dark:text-my-light text-my-gray-2 text-base mt-4 px-4 py-3`}
             placeholder="Email"
             value={email}
             onChange={handleEmailChange}
@@ -144,6 +158,7 @@ const Auth = ({ title, text, linkTo }) => {
             placeholder="Password"
             value={password}
             onChange={handlePasswordChange}
+            onKeyPress={handleClick}
             classStyles={
               passwordError
                 ? "border-red-500"
@@ -163,6 +178,7 @@ const Auth = ({ title, text, linkTo }) => {
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={handleConfirmPasswordChange}
+                onKeyPress={handleClick}
                 classStyles={
                   passwordError
                     ? "border-red-500"
