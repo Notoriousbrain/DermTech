@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { HomePage, Login, Register } from "./pages";
+import { EnterDetails, Login, Register } from "./pages";
 import Mode from "./components/Mode";
+import { AppNavigation } from "./components";
 
 function App() {
     const [isDark, setIsDark] = useState(true);
@@ -33,13 +34,18 @@ function App() {
 
     
   return (
-    <div>
+    <div className="min-h-screen dark:bg-my-dark bg-light">
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/enter-details" element={<EnterDetails />} />
       </Routes>
-      <Mode themeSwitch={themeSwitch} isDark={isDark} classStyles="absolute right-5 bottom-5" />
+      <AppNavigation />
+      <Mode
+        themeSwitch={themeSwitch}
+        isDark={isDark}
+        classStyles="fixed right-5 bottom-5"
+      />
     </div>
   );
 }
